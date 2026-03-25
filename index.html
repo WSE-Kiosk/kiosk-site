@@ -1,35 +1,170 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Kiosk Menu</title>
-<style>
-body {
-  text-align: center;
-  font-family: Arial;
-}
-button {
-  width: 200px;
-  height: 80px;
-  margin: 20px;
-  font-size: 20px;
-}
-</style>
+  <meta charset="UTF-8">
+  <title>WSE Kiosk</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #f2f2f2;
+    }
+
+    header {
+      text-align: center;
+      padding: 20px;
+      font-size: 32px;
+      font-weight: bold;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      padding: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    button {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 22px;
+      font-size: 22px;
+      border: none;
+      border-radius: 14px;
+      background-color: #007aff;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    button span.icon {
+      font-size: 28px;
+    }
+
+    button:active {
+      background-color: #005bb5;
+    }
+
+    /* Back Home Button */
+    #homeBtn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 18px 22px;
+      font-size: 20px;
+      border-radius: 50px;
+      background-color: #333;
+      display: none;
+    }
+
+    /* Landscape layout */
+    @media (orientation: landscape) {
+      .container {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<h1>Welcome</h1>
+<header>WSE Services</header>
 
-<button onclick="location.href='https://wimbledon-school.ac.uk/'">
-Booking
-</button>
+<div class="container" id="menu">
 
-<button onclick="location.href='https://example.com/shop'">
-Shop
-</button>
+  <button onclick="go('https://ask-wse.zapier.app')">
+    <span class="icon">🤖</span> Ask WSE (Chatbot)
+  </button>
 
-<button onclick="location.href='https://example.com/info'">
-Info
-</button>
+  <button onclick="go('https://elsieapp.typeform.com/to/UbV5d0dy')">
+    <span class="icon">🌴</span> Book a Holiday / Extend Course
+  </button>
+
+  <button onclick="go('https://2dmuxe.share-eu1.hsforms.com/2g5oFMpnQR3uLQE_J6Oow1Q')">
+    <span class="icon">📞</span> Contact Sales Team
+  </button>
+
+  <button onclick="go('https://www.google.co.uk')">
+    <span class="icon">🔍</span> Google
+  </button>
+
+  <button onclick="go('https://www.google.com/maps')">
+    <span class="icon">🗺️</span> Google Maps
+  </button>
+
+  <button onclick="go('https://tfl.gov.uk/plan-a-journey/')">
+    <span class="icon">🚇</span> TfL Journey Planner
+  </button>
+
+  <button onclick="go('https://citymapper.com/?lang=en')">
+    <span class="icon">📍</span> Citymapper
+  </button>
+
+  <button onclick="go('https://www.timeout.com/london')">
+    <span class="icon">🎭</span> TimeOut London
+  </button>
+
+  <button onclick="go('https://lovewimbledon.org/')">
+    <span class="icon">❤️</span> Love Wimbledon
+  </button>
+
+  <button onclick="go('https://wimbledon-school.ac.uk/school/other-services/mobile-app')">
+    <span class="icon">📱</span> WSE App
+  </button>
+
+  <button onclick="go('https://wimbledon-school.ac.uk/')">
+    <span class="icon">🏫</span> WSE Homepage
+  </button>
+
+  <button onclick="go('https://limebike.app.link/LimeWebsiteAppDownloadMM')">
+    <span class="icon">🚲</span> Lime Bikes
+  </button>
+
+  <button onclick="go('https://voi.com/how-to-voi')">
+    <span class="icon">🛴</span> Voi Bikes
+  </button>
+
+  <button onclick="go('https://cyclesaver.co.uk/forest')">
+    <span class="icon">🌳</span> Forest Bikes
+  </button>
+
+  <button onclick="go('https://airporttransfer.com/?affiliate=AT-VLNJASDYCZZP&utm_source=marketing&utm_medium=tpc&utm_campaign=affiliate')">
+    <span class="icon">✈️</span> Airport Transfer
+  </button>
+
+  <button onclick="go('https://skyscanner.pxf.io/JzO6vN')">
+    <span class="icon">🛫</span> Flights (Skyscanner)
+  </button>
+
+  <button onclick="go('https://www.uber.com/gb/en/download/')">
+    <span class="icon">🚕</span> Uber
+  </button>
+
+</div>
+
+<button id="homeBtn" onclick="goHome()">🏠 Home</button>
+
+<script>
+  function go(url) {
+    document.getElementById("menu").style.display = "none";
+    document.getElementById("homeBtn").style.display = "block";
+
+    // Same tab navigation (best for kiosk)
+    window.location.href = url;
+
+    // OPTIONAL: open in new tab instead
+    // window.open(url, '_blank');
+  }
+
+  function goHome() {
+    window.location.href = window.location.pathname;
+  }
+</script>
 
 </body>
 </html>
