@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Kiosk Menu</title>
+<style>
+body {
+  text-align: center;
+  font-family: Arial;
+}
+button {
+  width: 200px;
+  height: 80px;
+  margin: 20px;
+  font-size: 20px;
+}
+</style>
+</head>
+<body>
+
+<h1>Welcome</h1>
+
+<button onclick="location.href='https://wimbledon-school.ac.uk/'">
+Booking
+</button>
+
+<button onclick="location.href='https://example.com/shop'">
+Shop
+</button>
+
+<button onclick="location.href='https://example.com/info'">
+Info
+</button>
+
+</body>
+</html>
