@@ -50,7 +50,6 @@
       background-color: #432f68;
     }
 
-    /* Back Home Button */
     #homeBtn {
       position: fixed;
       bottom: 20px;
@@ -63,7 +62,18 @@
       display: none;
     }
 
-    /* Landscape layout */
+    /* IMAGE VIEW */
+    #imageView {
+      display: none;
+      text-align: center;
+      padding: 20px;
+    }
+
+    #imageView img {
+      max-width: 100%;
+      border-radius: 12px;
+    }
+
     @media (orientation: landscape) {
       .container {
         grid-template-columns: 1fr 1fr;
@@ -114,9 +124,10 @@
     <span class="icon">❤️</span> Love Wimbledon
   </button>
 
- <button onclick="showImage()">
-  <span class="icon">📱</span> WSE App
- </button>
+  <!-- ✅ UPDATED BUTTON -->
+  <button onclick="showImage()">
+    <span class="icon">📱</span> WSE App
+  </button>
 
   <button onclick="go('https://wimbledon-school.ac.uk/')">
     <span class="icon">🏫</span> WSE Homepage
@@ -148,22 +159,30 @@
 
 </div>
 
+<!-- ✅ IMAGE DISPLAY -->
+<div id="imageView">
+  <img src="images/wse-app.jpeg" alt="WSE App">
+</div>
+
 <button id="homeBtn" onclick="goHome()">🏠 Home</button>
 
 <script>
   function go(url) {
     document.getElementById("menu").style.display = "none";
     document.getElementById("homeBtn").style.display = "block";
-
-    // Same tab navigation (best for kiosk)
     window.location.href = url;
+  }
 
-    // OPTIONAL: open in new tab instead
-    // window.open(url, '_blank');
+  function showImage() {
+    document.getElementById("menu").style.display = "none";
+    document.getElementById("imageView").style.display = "block";
+    document.getElementById("homeBtn").style.display = "block";
   }
 
   function goHome() {
-    window.location.href = window.location.pathname;
+    document.getElementById("menu").style.display = "grid";
+    document.getElementById("imageView").style.display = "none";
+    document.getElementById("homeBtn").style.display = "none";
   }
 </script>
 
