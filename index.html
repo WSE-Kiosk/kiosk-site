@@ -8,136 +8,139 @@
 </head>
 <body>
 
-<header>WSE Services</header>
+  <header>WSE Services</header>
 
-<div id="screensaver" onclick="hideScreensaver()">
-  <img src="images/screensaver.jpg" alt="Screensaver">
-</div>
+  <div id="screensaver" onclick="hideScreensaver()">
+    <img src="images/screensaver.jpg" alt="Screensaver">
+  </div>
 
-<div class="container" id="menu" style="display:none;">
+  <div class="container" id="menu" style="display: none;">
 
-  <button onclick="go('https://ask-wse.zapier.app')">
-    <span class="icon">🤖</span> Ask WSE (Chatbot)
-  </button>
+    <button onclick="go('https://ask-wse.zapier.app')">
+      <span class="icon">🤖</span> Ask WSE (Chatbot)
+    </button>
 
-  <button onclick="go('https://elsieapp.typeform.com/to/UbV5d0dy')">
-    <span class="icon">🌴</span> Book a Holiday / Extend Course
-  </button>
+    <button onclick="go('https://elsieapp.typeform.com/to/UbV5d0dy')">
+      <span class="icon">🌴</span> Book a Holiday / Extend Course
+    </button>
 
-  <button onclick="go('https://2dmuxe.share-eu1.hsforms.com/2g5oFMpnQR3uLQE_J6Oow1Q')">
-    <span class="icon">📞</span> Contact Sales Team
-  </button>
+    <button onclick="go('https://2dmuxe.share-eu1.hsforms.com/2g5oFMpnQR3uLQE_J6Oow1Q')">
+      <span class="icon">📞</span> Contact Sales Team
+    </button>
 
-  <button onclick="go('https://www.google.co.uk')">
-    <span class="icon">🔍</span> Google
-  </button>
+    <button onclick="go('https://www.google.co.uk')">
+      <span class="icon">🔍</span> Google
+    </button>
 
-  <button onclick="go('https://www.google.com/maps')">
-    <span class="icon">🗺️</span> Google Maps
-  </button>
+    <button onclick="go('https://www.google.com/maps')">
+      <span class="icon">🗺️</span> Google Maps
+    </button>
 
-  <button onclick="go('https://tfl.gov.uk/plan-a-journey/')">
-    <span class="icon">🚇</span> TfL Journey Planner
-  </button>
+    <button onclick="go('https://tfl.gov.uk/plan-a-journey/')">
+      <span class="icon">🚇</span> TfL Journey Planner
+    </button>
 
-  <button onclick="go('https://citymapper.com/?lang=en')">
-    <span class="icon">📍</span> Citymapper
-  </button>
+    <button onclick="go('https://citymapper.com/?lang=en')">
+      <span class="icon">📍</span> Citymapper
+    </button>
 
-  <button onclick="go('https://www.timeout.com/london')">
-    <span class="icon">🎭</span> TimeOut London
-  </button>
+    <button onclick="go('https://www.timeout.com/london')">
+      <span class="icon">🎭</span> TimeOut London
+    </button>
 
-  <button onclick="go('https://lovewimbledon.org/')">
-    <span class="icon">❤️</span> Love Wimbledon
-  </button>
+    <button onclick="go('https://lovewimbledon.org/')">
+      <span class="icon">❤️</span> Love Wimbledon
+    </button>
 
-  <button onclick="showImage()">
-    <span class="icon">📱</span> WSE App
-  </button>
+    <button onclick="showImage()">
+      <span class="icon">📱</span> WSE App
+    </button>
 
-  <button onclick="go('https://wimbledon-school.ac.uk/')">
-    <span class="icon">🏫</span> WSE Homepage
-  </button>
+    <button onclick="go('https://wimbledon-school.ac.uk/')">
+      <span class="icon">🏫</span> WSE Homepage
+    </button>
 
-  <button onclick="go('https://limebike.app.link/LimeWebsiteAppDownloadMM')">
-    <span class="icon">🚲</span> Lime Bikes
-  </button>
+    <button onclick="go('https://limebike.app.link/LimeWebsiteAppDownloadMM')">
+      <span class="icon">🚲</span> Lime Bikes
+    </button>
 
-  <button onclick="go('https://voi.com/how-to-voi')">
-    <span class="icon">🛴</span> Voi Bikes
-  </button>
+    <button onclick="go('https://cyclesaver.co.uk/forest')">
+      <span class="icon">🌳</span> Forest Bikes
+    </button>
 
-  <button onclick="go('https://cyclesaver.co.uk/forest')">
-    <span class="icon">🌳</span> Forest Bikes
-  </button>
+    <button onclick="go('https://airporttransfer.com/?affiliate=AT-VLNJASDYCZZP&utm_source=marketing&utm_medium=tpc&utm_campaign=affiliate')">
+      <span class="icon">✈️</span> Airport Transfer
+    </button>
 
-  <button onclick="go('https://airporttransfer.com/?affiliate=AT-VLNJASDYCZZP&utm_source=marketing&utm_medium=tpc&utm_campaign=affiliate')">
-    <span class="icon">✈️</span> Airport Transfer
-  </button>
+    <button onclick="go('https://skyscanner.pxf.io/JzO6vN')">
+      <span class="icon">🛫</span> Flights (Skyscanner)
+    </button>
 
-  <button onclick="go('https://skyscanner.pxf.io/JzO6vN')">
-    <span class="icon">🛫</span> Flights (Skyscanner)
-  </button>
+    <button onclick="go('https://www.uber.com/gb/en/download/')">
+      <span class="icon">🚕</span> Uber
+    </button>
 
-  <button onclick="go('https://www.uber.com/gb/en/download/')">
-    <span class="icon">🚕</span> Uber
-  </button>
+  </div>
 
-</div>
+  <div id="imageView" style="display: none;">
+    <img src="images/wse-app.jpeg" alt="WSE App">
+  </div>
 
-<div id="imageView" style="display:none;">
-  <img src="Downlaod App for presentation-1.webp" alt="WSE App">
-</div>
+  <button id="homeBtn" onclick="goHome()">🏠 Home</button>
 
-<button id="homeBtn" onclick="goHome()">🏠 Home</button>
+  <script>
+    let timer;
+    const timeout = 60000;
 
-<script>
-  let timer;
-  const timeout = 60000;
+    const screensaver = document.getElementById('screensaver');
+    const menu = document.getElementById('menu');
+    const imageView = document.getElementById('imageView');
+    const homeBtn = document.getElementById('homeBtn');
 
-  function resetTimer() {
-    clearTimeout(timer);
-    timer = setTimeout(showScreensaver, timeout);
-  }
+    function resetTimer() {
+      clearTimeout(timer);
+      timer = setTimeout(showScreensaver, timeout);
+    }
 
-  function showScreensaver() {
-    document.getElementById('screensaver').style.display = 'flex';
-    document.getElementById('menu').style.display = 'none';
-    document.getElementById('imageView').style.display = 'none';
-    document.getElementById('homeBtn').style.display = 'none';
-  }
+    function showScreensaver() {
+      screensaver.style.display = 'flex';
+      menu.style.display = 'none';
+      imageView.style.display = 'none';
+      homeBtn.style.display = 'none';
+    }
 
-  function hideScreensaver() {
-    document.getElementById('screensaver').style.display = 'none';
-    document.getElementById('menu').style.display = 'grid';
+    function hideScreensaver() {
+      screensaver.style.display = 'none';
+      menu.style.display = 'grid';
+      imageView.style.display = 'none';
+      homeBtn.style.display = 'none';
+      resetTimer();
+    }
+
+    function go(url) {
+      resetTimer();
+      window.location.href = url;
+    }
+
+    function showImage() {
+      menu.style.display = 'none';
+      imageView.style.display = 'block';
+      homeBtn.style.display = 'block';
+      resetTimer();
+    }
+
+    function goHome() {
+      menu.style.display = 'grid';
+      imageView.style.display = 'none';
+      homeBtn.style.display = 'none';
+      resetTimer();
+    }
+
+    document.addEventListener('click', resetTimer);
+    document.addEventListener('touchstart', resetTimer);
+
     resetTimer();
-  }
-
-  function go(url) {
-    resetTimer();
-    window.location.href = url;
-  }
-
-  function showImage() {
-    document.getElementById('menu').style.display = 'none';
-    document.getElementById('imageView').style.display = 'block';
-    document.getElementById('homeBtn').style.display = 'block';
-    resetTimer();
-  }
-
-  function goHome() {
-    document.getElementById('menu').style.display = 'grid';
-    document.getElementById('imageView').style.display = 'none';
-    document.getElementById('homeBtn').style.display = 'none';
-    resetTimer();
-  }
-
-  document.addEventListener('click', resetTimer);
-  document.addEventListener('touchstart', resetTimer);
-
-  resetTimer();
-</script>
+  </script>
 
 </body>
 </html>
