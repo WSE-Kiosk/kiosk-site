@@ -1,218 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>WSE Kiosk</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+.social-section {
+  max-width: 1000px;
+  margin: 16px auto 40px;
+  padding: 0 20px 20px;
+}
 
-  <header>WSE Services</header>
+.social-section h2 {
+  text-align: center;
+  margin: 0 0 20px;
+  font-size: 28px;
+  font-weight: 700;
+}
 
-  <div id="screensaver" onclick="hideScreensaver()">
-    <img src="images/screensaver.jpg" alt="Screensaver">
-  </div>
+.social-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
 
-  <div class="container" id="menu" style="display: none;">
+.social-link {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  flex: 0 0 auto;
+  -webkit-tap-highlight-color: transparent;
+}
 
-    <button type="button" onclick="go('https://ask-wse.zapier.app')">
-      <span class="icon">🤖</span> Ask WSE (Chatbot)
-    </button>
+.social-link img {
+  width: 58px;
+  height: 58px;
+  object-fit: contain;
+  transition: transform 0.12s ease, opacity 0.12s ease;
+}
 
-    <button type="button" onclick="go('https://elsieapp.typeform.com/to/UbV5d0dy')">
-      <span class="icon">🌴</span> Book a Holiday / Extend Course
-    </button>
-
-    <button type="button" onclick="go('https://2dmuxe.share-eu1.hsforms.com/2g5oFMpnQR3uLQE_J6Oow1Q')">
-      <span class="icon">📞</span> Contact Sales Team
-    </button>
-
-    <button type="button" onclick="go('https://www.google.co.uk')">
-      <span class="icon">🔍</span> Google
-    </button>
-
-    <button type="button" onclick="go('https://www.google.com/maps')">
-      <span class="icon">🗺️</span> Google Maps
-    </button>
-
-    <button type="button" onclick="go('https://tfl.gov.uk/plan-a-journey/')">
-      <span class="icon">🚇</span> TfL Journey Planner
-    </button>
-
-    <button type="button" onclick="go('https://citymapper.com/?lang=en')">
-      <span class="icon">📍</span> Citymapper
-    </button>
-
-    <button type="button" onclick="go('https://www.timeout.com/london')">
-      <span class="icon">🎭</span> TimeOut London
-    </button>
-
-    <button type="button" onclick="go('https://lovewimbledon.org/')">
-      <span class="icon">❤️</span> Love Wimbledon
-    </button>
-
-    <button type="button" onclick="showImage('images/wse-app.jpeg', 'WSE App')">
-      <span class="icon">📱</span> WSE App
-    </button>
-
-    <button type="button" onclick="go('https://wimbledon-school.ac.uk/')">
-      <span class="icon">🏫</span> WSE Homepage
-    </button>
-
-    <button type="button" onclick="go('https://limebike.app.link/LimeWebsiteAppDownloadMM')">
-      <span class="icon">🚲</span> Lime Bikes
-    </button>
-
-    <button type="button" onclick="go('https://cyclesaver.co.uk/forest')">
-      <span class="icon">🌳</span> Forest Bikes
-    </button>
-
-    <button type="button" onclick="go('https://airporttransfer.com/?affiliate=AT-VLNJASDYCZZP&utm_source=marketing&utm_medium=tpc&utm_campaign=affiliate')">
-      <span class="icon">✈️</span> Airport Transfer
-    </button>
-
-    <button type="button" onclick="go('https://skyscanner.pxf.io/JzO6vN')">
-      <span class="icon">🛫</span> Flights (Skyscanner)
-    </button>
-
-    <button type="button" onclick="go('https://www.uber.com/gb/en/download/')">
-      <span class="icon">🚕</span> Uber
-    </button>
-
-  </div>
-
-  <section id="socialSection" class="social-section" style="display: none;">
-    <h2>Follow Us on Socials</h2>
-
-    <div class="social-icons">
-
-      <button
-        type="button"
-        class="social-icon-btn"
-        aria-label="Follow WSE on Facebook"
-        onclick="showImage('images/WSE-FB-QR.jpg', 'Follow WSE on Facebook')">
-        <img src="images/facebook-logo.png" alt="">
-      </button>
-
-      <button
-        type="button"
-        class="social-icon-btn"
-        aria-label="Follow WSE on Instagram"
-        onclick="showImage('images/wse-insta-qr.jpg', 'Follow WSE on Instagram')">
-        <img src="images/instagram-logo.png" alt="">
-      </button>
-
-      <button
-        type="button"
-        class="social-icon-btn"
-        aria-label="Follow English Study Camps on Instagram"
-        onclick="showImage('images/esc-insta-qr.jpg', 'Follow English Study Camps on Instagram')">
-        <img src="images/esc-instagram-logo.png" alt="">
-      </button>
-
-      <button
-        type="button"
-        class="social-icon-btn"
-        aria-label="Follow WSE on LinkedIn"
-        onclick="showImage('images/wse-linkedin-qr.jpg', 'Follow WSE on LinkedIn')">
-        <img src="images/linkedin-logo.png" alt="">
-      </button>
-
-      <button
-        type="button"
-        class="social-icon-btn"
-        aria-label="Follow WSE on TikTok"
-        onclick="showImage('images/wse-tiktok-qr.jpg', 'Follow WSE on TikTok')">
-        <img src="images/tiktok-logo.png" alt="">
-      </button>
-
-      <button
-        type="button"
-        class="social-icon-btn"
-        aria-label="Follow WSE on YouTube"
-        onclick="showImage('images/wse-youtube-qr.jpg', 'Follow WSE on YouTube')">
-        <img src="images/youtube-logo.png" alt="">
-      </button>
-
-      <button
-        type="button"
-        class="social-icon-btn"
-        aria-label="Review WSE on Google"
-        onclick="showImage('images/wse-google-qr.jpg', 'Review WSE on Google')">
-        <img src="images/google-logo.png" alt="">
-      </button>
-
-    </div>
-  </section>
-
-  <div id="imageView" style="display: none;">
-    <img id="displayImage" src="" alt="">
-  </div>
-
-  <button id="homeBtn" type="button" onclick="goHome()">🏠 Home</button>
-
-  <script>
-    let timer;
-    const timeout = 60000;
-
-    const screensaver = document.getElementById('screensaver');
-    const menu = document.getElementById('menu');
-    const socialSection = document.getElementById('socialSection');
-    const imageView = document.getElementById('imageView');
-    const homeBtn = document.getElementById('homeBtn');
-    const displayImage = document.getElementById('displayImage');
-
-    function resetTimer() {
-      clearTimeout(timer);
-      timer = setTimeout(showScreensaver, timeout);
-    }
-
-    function showScreensaver() {
-      screensaver.style.display = 'flex';
-      menu.style.display = 'none';
-      socialSection.style.display = 'none';
-      imageView.style.display = 'none';
-      homeBtn.style.display = 'none';
-    }
-
-    function hideScreensaver() {
-      screensaver.style.display = 'none';
-      menu.style.display = 'grid';
-      socialSection.style.display = 'block';
-      imageView.style.display = 'none';
-      homeBtn.style.display = 'none';
-      resetTimer();
-    }
-
-    function go(url) {
-      resetTimer();
-      window.location.href = url;
-    }
-
-    function showImage(src, altText) {
-      displayImage.src = src;
-      displayImage.alt = altText;
-      menu.style.display = 'none';
-      socialSection.style.display = 'none';
-      imageView.style.display = 'block';
-      homeBtn.style.display = 'block';
-      resetTimer();
-    }
-
-    function goHome() {
-      menu.style.display = 'grid';
-      socialSection.style.display = 'block';
-      imageView.style.display = 'none';
-      homeBtn.style.display = 'none';
-      resetTimer();
-    }
-
-    document.addEventListener('click', resetTimer);
-    document.addEventListener('touchstart', resetTimer);
-
-    resetTimer();
-  </script>
-
-</body>
-</html>
+.social-link:active img {
+  transform: scale(0.92);
+  opacity: 0.85;
+}
