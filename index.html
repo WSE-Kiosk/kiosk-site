@@ -74,6 +74,26 @@
       border-radius: 12px;
     }
 
+    /* SCREENSAVER */
+    #screensaver {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    #screensaver img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
     @media (orientation: landscape) {
       .container {
         grid-template-columns: 1fr 1fr;
@@ -86,7 +106,12 @@
 
 <header>WSE Services</header>
 
-<div class="container" id="menu">
+<!-- ✅ SCREENSAVER FIRST VIEW -->
+<div id="screensaver" onclick="hideScreensaver()">
+  <img src="images/screensaver.jpg" alt="Screensaver">
+</div>
+
+<div class="container" id="menu" style="display:none;">
 
   <button onclick="go('https://ask-wse.zapier.app')">
     <span class="icon">🤖</span> Ask WSE (Chatbot)
@@ -124,7 +149,6 @@
     <span class="icon">❤️</span> Love Wimbledon
   </button>
 
-  <!-- ✅ UPDATED BUTTON -->
   <button onclick="showImage()">
     <span class="icon">📱</span> WSE App
   </button>
@@ -159,17 +183,37 @@
 
 </div>
 
-<!-- ✅ IMAGE DISPLAY -->
-<div id="imageView">
+<!-- IMAGE VIEW -->
+<div id="imageView" style="display:none;">
   <img src="images/wse-app.jpeg" alt="WSE App">
 </div>
 
 <button id="homeBtn" onclick="goHome()">🏠 Home</button>
 
 <script>
-  function go(url) {
+  let timer;
+  const timeout = 60000; // 1 minute
+
+  function resetTimer() {
+    clearTimeout(timer);
+    timer = setTimeout(showScreensaver, timeout);
+  }
+
+  function showScreensaver() {
+    document.getElementById("screensaver").style.display = "flex";
     document.getElementById("menu").style.display = "none";
-    document.getElementById("homeBtn").style.display = "block";
+    document.getElementById("imageView").style.display = "none";
+    document.getElementById("homeBtn").style.display = "none";
+  }
+
+  function hideScreensaver() {
+    document.getElementById("screensaver").style.display = "none";
+    document.getElementById("menu").style.display = "grid";
+    resetTimer();
+  }
+
+  function go(url) {
+    resetTimer();
     window.location.href = url;
   }
 
@@ -177,13 +221,22 @@
     document.getElementById("menu").style.display = "none";
     document.getElementById("imageView").style.display = "block";
     document.getElementById("homeBtn").style.display = "block";
+    resetTimer();
   }
 
   function goHome() {
     document.getElementById("menu").style.display = "grid";
     document.getElementById("imageView").style.display = "none";
     document.getElementById("homeBtn").style.display = "none";
+    resetTimer();
   }
+
+  // Detect any interaction
+  document.addEventListener("click", resetTimer);
+  document.addEventListener("touchstart", resetTimer);
+
+  // Start timer on load
+  resetTimer();
 </script>
 
 </body>
