@@ -4,109 +4,12 @@
   <meta charset="UTF-8">
   <title>WSE Kiosk</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-
-  <style>
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-      background-color: #f2f2f2;
-    }
-
-    header {
-      text-align: center;
-      padding: 20px;
-      font-size: 32px;
-      font-weight: bold;
-    }
-
-    .container {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 16px;
-      padding: 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-
-    button {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      padding: 22px;
-      font-size: 22px;
-      border: none;
-      border-radius: 14px;
-      background-color: #543D82;
-      color: #ffffff;
-      cursor: pointer;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-
-    button span.icon {
-      font-size: 28px;
-    }
-
-    button:active {
-      background-color: #432f68;
-    }
-
-    #homeBtn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      padding: 18px 22px;
-      font-size: 20px;
-      border-radius: 50px;
-      background-color: #543D82;
-      color: #ffffff;
-      display: none;
-    }
-
-    /* IMAGE VIEW */
-    #imageView {
-      display: none;
-      text-align: center;
-      padding: 20px;
-    }
-
-    #imageView img {
-      max-width: 100%;
-      border-radius: 12px;
-    }
-
-    /* SCREENSAVER */
-    #screensaver {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: black;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-    }
-
-    #screensaver img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    @media (orientation: landscape) {
-      .container {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <header>WSE Services</header>
 
-<!-- ✅ SCREENSAVER FIRST VIEW -->
 <div id="screensaver" onclick="hideScreensaver()">
   <img src="images/screensaver.jpg" alt="Screensaver">
 </div>
@@ -183,16 +86,15 @@
 
 </div>
 
-<!-- IMAGE VIEW -->
 <div id="imageView" style="display:none;">
-  <img src="images/wse-app.jpeg" alt="WSE App">
+  <img src="Downlaod App for presentation-1.webp" alt="WSE App">
 </div>
 
 <button id="homeBtn" onclick="goHome()">🏠 Home</button>
 
 <script>
   let timer;
-  const timeout = 60000; // 1 minute
+  const timeout = 60000;
 
   function resetTimer() {
     clearTimeout(timer);
@@ -200,15 +102,15 @@
   }
 
   function showScreensaver() {
-    document.getElementById("screensaver").style.display = "flex";
-    document.getElementById("menu").style.display = "none";
-    document.getElementById("imageView").style.display = "none";
-    document.getElementById("homeBtn").style.display = "none";
+    document.getElementById('screensaver').style.display = 'flex';
+    document.getElementById('menu').style.display = 'none';
+    document.getElementById('imageView').style.display = 'none';
+    document.getElementById('homeBtn').style.display = 'none';
   }
 
   function hideScreensaver() {
-    document.getElementById("screensaver").style.display = "none";
-    document.getElementById("menu").style.display = "grid";
+    document.getElementById('screensaver').style.display = 'none';
+    document.getElementById('menu').style.display = 'grid';
     resetTimer();
   }
 
@@ -218,24 +120,22 @@
   }
 
   function showImage() {
-    document.getElementById("menu").style.display = "none";
-    document.getElementById("imageView").style.display = "block";
-    document.getElementById("homeBtn").style.display = "block";
+    document.getElementById('menu').style.display = 'none';
+    document.getElementById('imageView').style.display = 'block';
+    document.getElementById('homeBtn').style.display = 'block';
     resetTimer();
   }
 
   function goHome() {
-    document.getElementById("menu").style.display = "grid";
-    document.getElementById("imageView").style.display = "none";
-    document.getElementById("homeBtn").style.display = "none";
+    document.getElementById('menu').style.display = 'grid';
+    document.getElementById('imageView').style.display = 'none';
+    document.getElementById('homeBtn').style.display = 'none';
     resetTimer();
   }
 
-  // Detect any interaction
-  document.addEventListener("click", resetTimer);
-  document.addEventListener("touchstart", resetTimer);
+  document.addEventListener('click', resetTimer);
+  document.addEventListener('touchstart', resetTimer);
 
-  // Start timer on load
   resetTimer();
 </script>
 
