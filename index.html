@@ -184,15 +184,31 @@
     }
 
     function showScreensaver() {
+      screensaver.classList.remove('hide');
       screensaver.style.display = 'flex';
+
+      mainContent.classList.remove('visible', 'content-visible');
       mainContent.style.display = 'none';
+
+      imageView.classList.remove('visible');
       imageView.style.display = 'none';
+
       homeBtn.style.display = 'none';
     }
 
     function hideScreensaver() {
-      screensaver.style.display = 'none';
-      mainContent.style.display = 'block';
+      screensaver.classList.add('hide');
+
+      setTimeout(() => {
+        screensaver.style.display = 'none';
+        mainContent.style.display = 'block';
+
+        requestAnimationFrame(() => {
+          mainContent.classList.add('visible', 'content-visible');
+        });
+      }, 420);
+
+      imageView.classList.remove('visible');
       imageView.style.display = 'none';
       homeBtn.style.display = 'none';
       resetTimer();
@@ -206,21 +222,40 @@
     function showImage(src, altText) {
       displayImage.src = src;
       displayImage.alt = altText;
+
+      mainContent.classList.remove('visible', 'content-visible');
       mainContent.style.display = 'none';
+
       imageView.style.display = 'block';
+      requestAnimationFrame(() => {
+        imageView.classList.add('visible');
+      });
+
       homeBtn.style.display = 'block';
       resetTimer();
     }
 
     function goHome() {
-      mainContent.style.display = 'block';
+      imageView.classList.remove('visible');
       imageView.style.display = 'none';
+
+      mainContent.style.display = 'block';
+      requestAnimationFrame(() => {
+        mainContent.classList.add('visible', 'content-visible');
+      });
+
       homeBtn.style.display = 'none';
       resetTimer();
     }
 
     document.addEventListener('click', resetTimer);
     document.addEventListener('touchstart', resetTimer);
+
+    window.addEventListener('load', () => {
+      const buttons = document.querySelectorAll('#servicesMenu button');
+      if (buttons[0]) buttons[0].classList.add('idle-glow');
+      if (buttons[3]) buttons[3].classList.add('idle-glow');
+    });
 
     resetTimer();
   </script>
