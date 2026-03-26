@@ -6,6 +6,7 @@ body {
   -webkit-user-select: none;
   user-select: none;
   -webkit-touch-callout: none;
+  overflow-x: hidden;
 }
 
 header {
@@ -40,9 +41,16 @@ button {
   cursor: pointer;
   text-align: left;
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.14);
-  transition: transform 0.12s ease, box-shadow 0.12s ease, background-color 0.12s ease, filter 0.12s ease;
+  transition:
+    transform 0.14s ease,
+    box-shadow 0.14s ease,
+    background-color 0.14s ease,
+    filter 0.14s ease,
+    opacity 0.3s ease;
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
+  opacity: 0;
+  transform: translateY(14px);
 }
 
 button span.icon {
@@ -51,16 +59,48 @@ button span.icon {
   flex-shrink: 0;
 }
 
+.content-visible button {
+  animation: buttonFadeUp 0.45s ease forwards;
+}
+
+.content-visible #servicesMenu button:nth-child(1) { animation-delay: 0.05s; }
+.content-visible #servicesMenu button:nth-child(2) { animation-delay: 0.10s; }
+.content-visible #servicesMenu button:nth-child(3) { animation-delay: 0.15s; }
+.content-visible #servicesMenu button:nth-child(4) { animation-delay: 0.20s; }
+.content-visible #servicesMenu button:nth-child(5) { animation-delay: 0.25s; }
+.content-visible #servicesMenu button:nth-child(6) { animation-delay: 0.30s; }
+
+.content-visible #travelMenu button:nth-child(1) { animation-delay: 0.35s; }
+.content-visible #travelMenu button:nth-child(2) { animation-delay: 0.40s; }
+.content-visible #travelMenu button:nth-child(3) { animation-delay: 0.45s; }
+.content-visible #travelMenu button:nth-child(4) { animation-delay: 0.50s; }
+.content-visible #travelMenu button:nth-child(5) { animation-delay: 0.55s; }
+.content-visible #travelMenu button:nth-child(6) { animation-delay: 0.60s; }
+.content-visible #travelMenu button:nth-child(7) { animation-delay: 0.65s; }
+.content-visible #travelMenu button:nth-child(8) { animation-delay: 0.70s; }
+.content-visible #travelMenu button:nth-child(9) { animation-delay: 0.75s; }
+.content-visible #travelMenu button:nth-child(10) { animation-delay: 0.80s; }
+.content-visible #travelMenu button:nth-child(11) { animation-delay: 0.85s; }
+.content-visible #travelMenu button:nth-child(12) { animation-delay: 0.90s; }
+
+.content-visible button.idle-glow {
+  animation:
+    buttonFadeUp 0.45s ease forwards,
+    buttonGlow 3.4s ease-in-out infinite;
+}
+
 button:active {
-  transform: scale(0.96);
+  transform: translateY(2px) scale(0.97);
   background-color: #432f68;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.16);
   filter: brightness(0.96);
 }
 
 button:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 5px rgba(84, 61, 130, 0.22), 0 8px 18px rgba(0, 0, 0, 0.14);
+  box-shadow:
+    0 0 0 5px rgba(84, 61, 130, 0.22),
+    0 8px 18px rgba(0, 0, 0, 0.14);
 }
 
 #homeBtn {
@@ -78,22 +118,33 @@ button:focus-visible {
   display: none;
   z-index: 1000;
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.16);
-  transition: transform 0.12s ease, box-shadow 0.12s ease, background-color 0.12s ease, filter 0.12s ease;
+  transition:
+    transform 0.14s ease,
+    box-shadow 0.14s ease,
+    background-color 0.14s ease,
+    opacity 0.25s ease;
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
 }
 
 #homeBtn:active {
-  transform: scale(0.95);
+  transform: translateY(2px) scale(0.96);
   background-color: #432f68;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.18);
-  filter: brightness(0.96);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.16);
 }
 
 #imageView {
   display: none;
   text-align: center;
   padding: 20px;
+  opacity: 0;
+  transform: scale(0.98);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+#imageView.visible {
+  opacity: 1;
+  transform: scale(1);
 }
 
 #imageView img {
@@ -114,6 +165,15 @@ button:focus-visible {
   justify-content: center;
   align-items: center;
   z-index: 9999;
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+#screensaver.hide {
+  opacity: 0;
+  transform: scale(1.04);
+  pointer-events: none;
 }
 
 #screensaver img {
@@ -122,10 +182,28 @@ button:focus-visible {
   object-fit: cover;
 }
 
+#mainContent {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+#mainContent.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .social-section {
   max-width: 1000px;
   margin: 16px auto 40px;
   padding: 0 20px 20px;
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.content-visible .social-section {
+  animation: sectionFadeUp 0.4s ease forwards;
+  animation-delay: 0.02s;
 }
 
 .social-section h2 {
@@ -139,10 +217,9 @@ button:focus-visible {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  gap: 12px;
   flex-wrap: nowrap;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
+  overflow: hidden;
 }
 
 .social-link {
@@ -152,11 +229,25 @@ button:focus-visible {
   text-decoration: none;
   flex: 0 0 auto;
   -webkit-tap-highlight-color: transparent;
+  opacity: 0;
+  transform: translateY(10px);
 }
 
+.content-visible .social-link {
+  animation: socialFadeUp 0.35s ease forwards;
+}
+
+.content-visible .social-link:nth-child(1) { animation-delay: 0.06s; }
+.content-visible .social-link:nth-child(2) { animation-delay: 0.10s; }
+.content-visible .social-link:nth-child(3) { animation-delay: 0.14s; }
+.content-visible .social-link:nth-child(4) { animation-delay: 0.18s; }
+.content-visible .social-link:nth-child(5) { animation-delay: 0.22s; }
+.content-visible .social-link:nth-child(6) { animation-delay: 0.26s; }
+.content-visible .social-link:nth-child(7) { animation-delay: 0.30s; }
+
 .social-link img {
-  width: 58px;
-  height: 58px;
+  width: 42px;
+  height: 42px;
   object-fit: contain;
   transition: transform 0.12s ease, opacity 0.12s ease;
 }
@@ -164,6 +255,48 @@ button:focus-visible {
 .social-link:active img {
   transform: scale(0.92);
   opacity: 0.85;
+}
+
+@keyframes buttonFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes sectionFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes socialFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes buttonGlow {
+  0%, 100% {
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.14);
+  }
+  50% {
+    box-shadow: 0 10px 24px rgba(84, 61, 130, 0.22);
+  }
 }
 
 @media (min-width: 900px) {
@@ -175,8 +308,21 @@ button:focus-visible {
 @media (prefers-reduced-motion: reduce) {
   button,
   #homeBtn,
-  .social-link img {
+  .social-link img,
+  #screensaver,
+  #mainContent,
+  #imageView {
     transition: none;
+    animation: none;
+  }
+
+  button,
+  .social-link,
+  .social-section,
+  #mainContent,
+  #imageView {
+    opacity: 1;
+    transform: none;
   }
 
   button:active,
