@@ -8,11 +8,73 @@
 </head>
 <body>
 
-  <header>WSE Services</header>
-
   <div id="screensaver" onclick="hideScreensaver()">
     <img src="images/screensaver.jpg" alt="Screensaver">
   </div>
+
+  <section id="socialSection" class="social-section" style="display: none;">
+    <h2>Follow Us on Socials</h2>
+
+    <div class="social-icons">
+      <a
+        href="#"
+        class="social-link"
+        aria-label="Follow WSE on Facebook"
+        onclick="showImage('images/WSE-FB-QR.jpg', 'Follow WSE on Facebook'); return false;">
+        <img src="images/fb-logo.png" alt="Facebook">
+      </a>
+
+      <a
+        href="#"
+        class="social-link"
+        aria-label="Follow WSE on Instagram"
+        onclick="showImage('images/wse-insta-qr.jpg', 'Follow WSE on Instagram'); return false;">
+        <img src="images/insta-wse-logo.png" alt="WSE Instagram">
+      </a>
+
+      <a
+        href="#"
+        class="social-link"
+        aria-label="Follow English Study Camps on Instagram"
+        onclick="showImage('images/esc-insta-qr.jpg', 'Follow English Study Camps on Instagram'); return false;">
+        <img src="images/insta-esc-logo.png" alt="English Study Camps Instagram">
+      </a>
+
+      <a
+        href="#"
+        class="social-link"
+        aria-label="Follow WSE on LinkedIn"
+        onclick="showImage('images/wse-linkedin-qr.jpg', 'Follow WSE on LinkedIn'); return false;">
+        <img src="images/linkedin-logo.png" alt="LinkedIn">
+      </a>
+
+      <a
+        href="#"
+        class="social-link"
+        aria-label="Follow WSE on TikTok"
+        onclick="showImage('images/wse-tiktok-qr.jpg', 'Follow WSE on TikTok'); return false;">
+        <img src="images/tiktok-logo.png" alt="TikTok">
+      </a>
+
+      <a
+        href="#"
+        class="social-link"
+        aria-label="Follow WSE on YouTube"
+        onclick="showImage('images/wse-youtube-qr.jpg', 'Follow WSE on YouTube'); return false;">
+        <img src="images/youtube-logo.png" alt="YouTube">
+      </a>
+
+      <a
+        href="#"
+        class="social-link"
+        aria-label="Review WSE on Google"
+        onclick="showImage('images/wse-google-qr.jpg', 'Review WSE on Google'); return false;">
+        <img src="images/Google-logo.png" alt="Google">
+      </a>
+    </div>
+  </section>
+
+  <header>WSE Services</header>
 
   <div class="container" id="menu" style="display: none;">
 
@@ -82,68 +144,6 @@
 
   </div>
 
-  <section id="socialSection" class="social-section" style="display: none;">
-    <h2>Follow Us on Socials</h2>
-
-    <div class="social-icons">
-      <a
-        href="#"
-        class="social-link"
-        aria-label="Follow WSE on Facebook"
-        onclick="showImage('images/WSE-FB-QR.jpg', 'Follow WSE on Facebook'); return false;">
-        <img src="images/fb-logo.png" alt="Facebook">
-      </a>
-
-      <a
-        href="#"
-        class="social-link"
-        aria-label="Follow WSE on Instagram"
-        onclick="showImage('images/wse-insta-qr.jpg', 'Follow WSE on Instagram'); return false;">
-        <img src="images/insta-wse-logo.png" alt="WSE Instagram">
-      </a>
-
-      <a
-        href="#"
-        class="social-link"
-        aria-label="Follow English Study Camps on Instagram"
-        onclick="showImage('images/esc-insta-qr.jpg', 'Follow English Study Camps on Instagram'); return false;">
-        <img src="images/insta-esc-logo.png" alt="English Study Camps Instagram">
-      </a>
-
-      <a
-        href="#"
-        class="social-link"
-        aria-label="Follow WSE on LinkedIn"
-        onclick="showImage('images/wse-linkedin-qr.jpg', 'Follow WSE on LinkedIn'); return false;">
-        <img src="images/linkedin-logo.png" alt="LinkedIn">
-      </a>
-
-      <a
-        href="#"
-        class="social-link"
-        aria-label="Follow WSE on TikTok"
-        onclick="showImage('images/wse-tiktok-qr.jpg', 'Follow WSE on TikTok'); return false;">
-        <img src="images/tiktok-logo.png" alt="TikTok">
-      </a>
-
-      <a
-        href="#"
-        class="social-link"
-        aria-label="Follow WSE on YouTube"
-        onclick="showImage('images/wse-youtube-qr.jpg', 'Follow WSE on YouTube'); return false;">
-        <img src="images/youtube-logo.png" alt="YouTube">
-      </a>
-
-      <a
-        href="#"
-        class="social-link"
-        aria-label="Review WSE on Google"
-        onclick="showImage('images/wse-google-qr.jpg', 'Review WSE on Google'); return false;">
-        <img src="images/Google-logo.png" alt="Google">
-      </a>
-    </div>
-  </section>
-
   <div id="imageView" style="display: none;">
     <img id="displayImage" src="" alt="">
   </div>
@@ -176,8 +176,8 @@
 
     function hideScreensaver() {
       screensaver.style.display = 'none';
-      menu.style.display = 'grid';
       socialSection.style.display = 'block';
+      menu.style.display = 'grid';
       imageView.style.display = 'none';
       homeBtn.style.display = 'none';
       resetTimer();
@@ -191,16 +191,16 @@
     function showImage(src, altText) {
       displayImage.src = src;
       displayImage.alt = altText;
-      menu.style.display = 'none';
       socialSection.style.display = 'none';
+      menu.style.display = 'none';
       imageView.style.display = 'block';
       homeBtn.style.display = 'block';
       resetTimer();
     }
 
     function goHome() {
-      menu.style.display = 'grid';
       socialSection.style.display = 'block';
+      menu.style.display = 'grid';
       imageView.style.display = 'none';
       homeBtn.style.display = 'none';
       resetTimer();
