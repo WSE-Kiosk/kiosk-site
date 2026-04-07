@@ -1,9 +1,111 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: #f2f2f2;
+  color: #222;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  overflow-x: hidden;
+}
+
+header {
+  text-align: center;
+  padding: 20px;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 18px;
+  padding: 20px;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  flex: 0 1 calc((100% - 72px) / 5);
+  max-width: 220px;
+  min-width: 160px;
+  aspect-ratio: 1 / 1;
+  padding: 18px;
+  font-size: 19px;
+  font-weight: 600;
+  border: none;
+  border-radius: 26px 0 0 0;
+  background-color: #543D82;
+  color: #ffffff;
+  cursor: pointer;
+  text-align: center;
+  box-shadow:
+    0 12px 24px rgba(0, 0, 0, 0.16),
+    0 6px 12px rgba(0, 0, 0, 0.08);
+  transition:
+    transform 0.14s ease,
+    box-shadow 0.14s ease,
+    background-color 0.14s ease,
+    filter 0.14s ease,
+    opacity 0.3s ease;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  opacity: 0;
+  transform: translateY(14px);
+  box-sizing: border-box;
+}
+
+button .icon {
+  display: block;
+  font-size: 32px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+button .label {
+  display: block;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.content-visible button {
+  animation: buttonFadeUp 0.45s ease forwards;
+}
+
+button:active {
+  transform: translateY(2px) scale(0.97);
+  background-color: #432f68;
+}
+
+/* HOME BUTTON */
+#homeBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  border-radius: 999px;
+  padding: 18px 22px;
+  font-size: 20px;
+  background-color: #543D82;
+  color: #fff;
+  display: none;
+  z-index: 1000;
+}
+
+/* DO NOT PRESS BUTTON (FIXED VERSION REMOVED) */
 .do-not-press-wrapper {
   text-align: center;
   margin: 40px 0 80px;
 }
 
-#doNotPressBtn {
+.do-not-press-wrapper button {
   padding: 18px 40px;
   border: none;
   border-radius: 999px;
@@ -16,11 +118,81 @@
   transition: transform 0.15s ease, background 0.15s ease;
 }
 
-#doNotPressBtn:hover {
+.do-not-press-wrapper button:hover {
   background: #b30000;
 }
 
-#doNotPressBtn:active {
+.do-not-press-wrapper button:active {
   transform: scale(0.95);
   background: #a00000;
+}
+
+/* IMAGE VIEW */
+#imageView {
+  display: none;
+  text-align: center;
+  padding: 20px;
+}
+
+#imageView img {
+  max-width: 100%;
+  max-height: 85vh;
+}
+
+/* SCREENSAVER */
+#screensaver {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+#screensaver img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* ANIMATIONS */
+@keyframes buttonFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* RESPONSIVE */
+@media (max-width: 980px) {
+  button {
+    flex: 0 1 calc(25% - 18px);
+  }
+}
+
+@media (max-width: 760px) {
+  button {
+    flex: 0 1 calc(33.333% - 18px);
+  }
+}
+
+@media (max-width: 620px) {
+  button {
+    flex: 0 1 calc(50% - 18px);
+  }
+}
+
+@media (max-width: 420px) {
+  button {
+    flex: 0 1 100%;
+    max-width: 320px;
+  }
 }
