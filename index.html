@@ -5,6 +5,35 @@
   <title>WSE Kiosk</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <link rel="stylesheet" href="style.css">
+
+  <style>
+    #doNotPressBtn {
+      position: fixed;
+      left: 50%;
+      bottom: 20px;
+      transform: translateX(-50%);
+      z-index: 9000;
+
+      display: none;
+      padding: 16px 32px;
+      border: none;
+      border-radius: 999px;
+      background: #d40000;
+      color: #ffffff;
+      font-size: 1.4rem;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+    }
+
+    #doNotPressBtn:hover {
+      background: #b30000;
+    }
+
+    #doNotPressBtn:active {
+      transform: translateX(-50%) scale(0.98);
+    }
+  </style>
 </head>
 <body>
 
@@ -181,6 +210,13 @@
 
   <button id="homeBtn" type="button" onclick="goHome()">🏠 Home</button>
 
+  <button
+    id="doNotPressBtn"
+    type="button"
+    onclick="showImage('images/Shocked.gif', 'Shocked cat GIF')">
+    ⚠️ Do Not Press
+  </button>
+
   <script>
     let timer;
     const timeout = 60000;
@@ -190,6 +226,7 @@
     const imageView = document.getElementById('imageView');
     const homeBtn = document.getElementById('homeBtn');
     const displayImage = document.getElementById('displayImage');
+    const doNotPressBtn = document.getElementById('doNotPressBtn');
 
     function resetTimer() {
       clearTimeout(timer);
@@ -207,6 +244,7 @@
       imageView.style.display = 'none';
 
       homeBtn.style.display = 'none';
+      doNotPressBtn.style.display = 'none';
     }
 
     function hideScreensaver() {
@@ -219,6 +257,8 @@
         requestAnimationFrame(() => {
           mainContent.classList.add('visible', 'content-visible');
         });
+
+        doNotPressBtn.style.display = 'block';
       }, 420);
 
       imageView.classList.remove('visible');
@@ -245,6 +285,7 @@
       });
 
       homeBtn.style.display = 'block';
+      doNotPressBtn.style.display = 'none';
       resetTimer();
     }
 
@@ -258,6 +299,7 @@
       });
 
       homeBtn.style.display = 'none';
+      doNotPressBtn.style.display = 'block';
       resetTimer();
     }
 
