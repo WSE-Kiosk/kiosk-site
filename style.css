@@ -168,6 +168,60 @@ button:focus-visible {
     0 2px 6px rgba(0, 0, 0, 0.08);
 }
 
+#doNotPressBtn {
+  position: fixed;
+  left: 50%;
+  bottom: 20px;
+  width: auto;
+  max-width: none;
+  min-width: 0;
+  min-height: 64px;
+  aspect-ratio: auto;
+  flex: none;
+  flex-direction: row;
+  gap: 10px;
+  padding: 18px 32px;
+  border-radius: 999px;
+  background-color: #d40000;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 800;
+  display: none;
+  z-index: 1000;
+  box-shadow:
+    0 10px 24px rgba(0, 0, 0, 0.16),
+    0 4px 10px rgba(0, 0, 0, 0.08);
+  transition:
+    transform 0.14s ease,
+    box-shadow 0.14s ease,
+    background-color 0.14s ease,
+    opacity 0.25s ease;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  opacity: 1;
+  transform: translateX(-50%);
+}
+
+#doNotPressBtn:hover {
+  background-color: #b30000;
+}
+
+#doNotPressBtn:active {
+  transform: translateX(-50%) scale(0.96);
+  background-color: #a00000;
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.16),
+    0 2px 6px rgba(0, 0, 0, 0.08);
+  filter: brightness(0.98);
+}
+
+#doNotPressBtn:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 5px rgba(212, 0, 0, 0.22),
+    0 10px 24px rgba(0, 0, 0, 0.16);
+}
+
 #imageView {
   display: none;
   text-align: center;
@@ -365,11 +419,17 @@ button:focus-visible {
     flex: 0 1 100%;
     max-width: 320px;
   }
+
+  #doNotPressBtn {
+    padding: 16px 24px;
+    font-size: 18px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   button,
   #homeBtn,
+  #doNotPressBtn,
   .social-link img,
   #screensaver,
   #mainContent,
@@ -387,9 +447,18 @@ button:focus-visible {
     transform: none;
   }
 
+  #doNotPressBtn {
+    transform: translateX(-50%);
+  }
+
   button:active,
   #homeBtn:active,
+  #doNotPressBtn:active,
   .social-link:active img {
     transform: none;
+  }
+
+  #doNotPressBtn:active {
+    transform: translateX(-50%);
   }
 }
